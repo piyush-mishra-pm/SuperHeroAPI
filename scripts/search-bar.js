@@ -4,6 +4,7 @@ const BASEURL = 'https://www.superheroapi.com/api.php/4918875844839870/';
 const searchBar= document.getElementById('search-bar');
 const outputArea = document.getElementById('search-output');
 const searchFeedback = document.getElementById('search-feedback');
+const template = document.getElementById('template-hero');
 
 searchBar.addEventListener('input',searchHero);
 
@@ -30,7 +31,12 @@ function renderTotal(data){
         searchFeedback.innerHTML='No match found';
     }else{
         data.results.forEach(result => {
-            outputArea.innerHTML += `<li class="hero-item">${result.name}</li>`;
+            const liItem = template.content.cloneNode(true);
+            const imgItem = liItem.querySelector('li .hero-img');
+            const nameItem = liItem.querySelector('li .hero-name');
+            imgItem.src = `${result.image.url}`;
+            nameItem.textContent = `${result.name}`;
+            outputArea.appendChild(liItem);
         });
     }
 }
