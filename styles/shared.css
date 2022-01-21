@@ -1,0 +1,7 @@
+ul{
+    list-style: decimal;
+}
+.hero-item{
+    background-color: yellow;
+    margin:1rem;
+}
