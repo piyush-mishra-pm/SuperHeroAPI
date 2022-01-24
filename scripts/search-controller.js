@@ -31,11 +31,21 @@ function renderTotal(data){
         searchFeedback.innerHTML='No match found';
     }else{
         data.results.forEach(result => {
+            // Clone the template code for list item:
             const liItem = template.content.cloneNode(true);
+
+            // Set the heroId:
+            liItem.querySelector('li').dataset.heroId = result.id;
+
+            // Set the image:
             const imgItem = liItem.querySelector('li .hero-img');
-            const nameItem = liItem.querySelector('li .hero-name');
             imgItem.src = `${result.image.url}`;
+            
+            // Set the name:
+            const nameItem = liItem.querySelector('li .hero-name');
             nameItem.textContent = `${result.name}`;
+            
+            // Append to DOM
             outputArea.appendChild(liItem);
         });
     }

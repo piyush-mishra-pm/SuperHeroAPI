@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="styles/shared.css">
 
     <!-- Scripts -->
-    <script src="scripts/search-bar.js" defer></script>
+    <script src="scripts/search-controller.js" defer></script>
+    <script src="scripts/persistence-controller.js" defer></script>
+    <script src="scripts/favorites-controller.js" defer></script>
 
     <title>SuperHeroAPI-Home</title>
 </head>
@@ -19,25 +21,26 @@
     <button id="btn-search">Search!</button>
     <div id="search-output-container">
         <div id="search-feedback"></div>
-        <ul id="search-output">
+        <ul id="search-output" class="favorites-listener">
             <!-- Template code from below is copied using JS -->
+            
+            <template id="template-hero">
+                <li class="hero-item" data-hero-id="12314">
+                    <div class="btn-collection">
+                        <div class="btn-add">
+                            Add
+                        </div>
+                        <div class="btn-remove">
+                            Remove
+                        </div>
+                    </div>
+                    <img class="hero-img" src="">
+                    <div class="hero-name">
+                        Superman
+                    </div>
+                </li>
+            </template> 
         </ul>
-        <template id="template-hero">
-            <li class="hero-item">
-                <div class="btn-collection">
-                    <div class="btn-add">
-                        Add
-                    </div>
-                    <div class="btn-remove">
-                        Remove
-                    </div>
-                </div>
-                <img class="hero-img" src="">
-                <div class="hero-name">
-                    Superman
-                </div>
-            </li>
-        </template>
     </div>
 </body>
 </html>
