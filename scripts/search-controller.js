@@ -1,14 +1,14 @@
 // Trying to search for IronMan:
-const BASEURL = 'https://www.superheroapi.com/api.php/4918875844839870/';
+const BASEURL = configData.BASEURL;
 
 const searchBar= document.getElementById('search-bar');
 const outputArea = document.getElementById('search-output');
 const searchFeedback = document.getElementById('search-feedback');
 const template = document.getElementById('template-hero');
 
-searchBar.addEventListener('input',searchHero);
+searchBar.addEventListener('input',searchHeroByName);
 
-function searchHero(){
+function searchHeroByName(){
     const heroString = searchBar.value;
     if (heroString.length==0){
         searchFeedback.innerHTML = 'Type something to get started!';
@@ -21,10 +21,10 @@ function searchHero(){
     const url = BASEURL +'search/' + heroString;
     fetch(url)
         .then(data => data.json())
-        .then(d => renderTotal(d));
+        .then(d => renderSearchResults(d));
 }
 
-function renderTotal(data){
+function renderSearchResults(data){
     console.log(data);
     outputArea.innerHTML='';
     if(data.response=='error'){

@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorites</title>
+    <link rel="stylesheet" href="styles/shared.css">
+    <script src="scripts/config.js"  defer></script>
+    <script src="scripts/persistence-controller.js" defer></script>
+    <script src="scripts/favorites-controller.js"  defer></script>
+    <script src="scripts/favorites-renderer.js"  defer></script>
 </head>
 <body>
-    
+
+    <div>
+        <ul id="favorites-display-container">
+
+        </ul>
+    </div>
+            <template id="template-hero">
+                <li class="hero-item" data-hero-id="12314">
+                    <div class="btn-collection">
+                        <div class="btn-add">
+                            Add
+                        </div>
+                        <div class="btn-remove">
+                            Remove
+                        </div>
+                    </div>
+                    <img class="hero-img" src="">
+                    <div class="hero-name">
+                        Superman
+                    </div>
+                </li>
+            </template> 
 </body>
 </html>
